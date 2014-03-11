@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block nav %}
+
+	<nav> 
+			<a class="nav" href="/weblog/"><span style="display:inline-block" class="ui-icon ui-icon-home"></span>Home</a> 
+			<a class="active" href="/categories/"><span style="display:inline-block" class="ui-icon ui-icon-contact"></span>Categories</a>
+			<a class="nav" href="/tags/"># Discover</a> 
+			<a class="nava" href="/profile_list/">@ Connect</a> 
+			
+			{% if username %}
+  			<a class="nav" href="/create_pick/"><span style="display:inline-block" class="ui-icon ui-icon-document"></span>Compose Post</a>
+			<a class="nav" id="login" href="/user/{{ uid }}"><span style="display:inline-block" class="ui-icon ui-icon-person"></span>{{ username }} </a>
+			<a class="nav" href="/profile/"><span style="display:inline-block" class="ui-icon ui-icon-gear"></span>Manage Account </a>
+			<a class="nav" href="/logout/"><span style="display:inline-block" class="ui-icon ui-icon-locked"></span>Sign Out </a>
+			
+			{% else %}
+			<a class="nav" id="login" href="/login/"><span style="display:inline-block" class="ui-icon ui-icon-key"></span>Sign In </a>
+			<a class="nav" href="/register/"><span style="display:inline-block" class="ui-icon ui-icon-person"></span>Sign Up </a>
+			<a class="nav" href="/forgot/"><span style="display:inline-block" class="ui-icon ui-icon-help"></span>Forgot Password </a>
+			{% endif %}			
+	</nav>
+	
+{% endblock %}
+
+
+{% block content %}
+
+		<script>
+			$(function(){
+			
+					$('#search-hash').keyup(function() {
+		
+							$.ajax({
+								type: "GET",
+								url: "/search_hash/",
+								data: {
+									'search_text_hash' : $('#search-hash').val()
+								},
+								success: searchSuccess,
+								dataType: 'html'
+							});
+					});
+					
+			});
+	
+			function searchSuccess(data, textStatus, jqXHR)
+			{
+				$('#search-results-hash').show();
+				$('#search-results-hash').html(data);
+			}
+		</script>
+		
+		
+		
+	<br><br><br><br>
+	
+	
+	<article class="small" style="width:10%; display:inline-block; position: absolute; left:10%; top:29.5%">
+	
+		<h2 style="color:white; text-align:left; padding-left:13px;">Category</h2>
+		{% for category in category_list %}
+			
+				<a class="btn" href="/categories/{{ category.slug }}"> {{ category.title }} </a>
+			<br>
+		{% endfor %}
+	</article>
+	<br><br>
+
+		
+		
+
+<div class="everything">
+<br>
+		
+	
+</div>
+	
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+	
+{% endblock %}
+		
+

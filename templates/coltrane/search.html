@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br><br><br><br>
+
+					<input type="text" id="search" name="search" placeholder="Find Username"/>			
+						
+						
+						<ul id="search-results">
+						
+						</ul>
+						
+						
+		<script>
+			$(function(){
+		
+		$('#search').keyup(function() {
+
+					$.ajax({
+						type: "GET",
+						url: "/search/",
+						data: {
+							'search_text' : $('#search').val()
+						},
+						success: searchSuccess,
+						dataType: 'html'
+					});
+				});
+			});
+	
+			function searchSuccess(data, textStatus, jqXHR)
+			{
+				$('#search-results').html(data);
+			}
+		</script>
+	
+{% endblock %}

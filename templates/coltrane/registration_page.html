@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+
+
+{% block nav %}
+
+	<nav> 
+			<a class="nav" href="/weblog/"><span style="display:inline-block" class="ui-icon ui-icon-home"></span>Home</a> 
+			<a class="active" href="/categories/"><span style="display:inline-block" class="ui-icon ui-icon-contact"></span>Categories</a>
+			<a class="nav" href="/tags/"># Discover</a> 
+			<a class="nava" href="/profile_list/">@ Connect</a> 
+			
+			{% if username %}
+  			<a class="nav" href="/create_pick/"><span style="display:inline-block" class="ui-icon ui-icon-document"></span>Compose Post</a>
+			<a class="nav" id="login" href="/user/{{ uid }}"><span style="display:inline-block" class="ui-icon ui-icon-person"></span>{{ username }} </a>
+			<a class="nav" href="/profile/"><span style="display:inline-block" class="ui-icon ui-icon-gear"></span>Manage Account </a>
+			<a class="nav" href="/logout/"><span style="display:inline-block" class="ui-icon ui-icon-locked"></span>Sign Out </a>
+			
+			{% else %}
+			<a class="nav" id="login" href="/login/"><span style="display:inline-block" class="ui-icon ui-icon-key"></span>Sign In </a>
+			<a class="active" href="/register/"><span style="display:inline-block" class="ui-icon ui-icon-person"></span>Sign Up </a>
+			<a class="nav" href="/forgot/"><span style="display:inline-block" class="ui-icon ui-icon-help"></span>Forgot Password </a>
+			{% endif %}			
+	</nav>
+	
+{% endblock %}
+
+
+
+{% block content %}
+
+<style>
+label
+{
+float:left;
+}
+
+input.r
+{
+float:right;
+}
+</style>
+
+<br>
+	{% if form.errors %}
+		<p class="error">Sorry, that's not a valid username or password</p>
+	{% endif %}
+	
+	
+	<article style="height:580px;" class="coolshadow">
+	
+	<br>
+	
+	<h1>Sign up for WaddupToday</h1>
+	<p style="color:red;">{{error}}</p>
+		<div class="outer">
+			<form action="/register_process/" method="get">
+				<label for="username">User name:</label>
+				<input class="r" type="text" name="username" value="" id="username">
+				<br> <br>
+				<label for="password">Password:</label>
+				<input class="r" type="password" name="password" value="" id="password">
+				<br> <br>
+				<label for="repassword">Retype Password:</label>
+				<input class="r" type="password" name="repassword" value="" id="repassword">
+				<br> <br>
+				<label for="email_get">Email:</label>
+				<input class="r" type="text" name="email_get" value="" id="email_get">
+				<br> <br>
+				<label for="first_name">First Name:</label>
+				<input class="r" type="text" name="first_name" value="" id="first_name">
+				<br> <br>
+				<label for="last_name">Last Name:</label>
+				<input class="r" type="text" name="last_name" value="" id="last_name">
+				<br> <br>
+				<input class="r" type="submit" value="Sign Up" />
+			</form>
+		</div>
+	</article>
+	
+{% endblock %}

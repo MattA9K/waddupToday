@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block nav %}
+
+	<nav> 
+			<a class="nav" href="/weblog/"><span style="display:inline-block" class="ui-icon ui-icon-home"></span>Home</a> 
+			<a class="nav" href="/categories/"><span style="display:inline-block" class="ui-icon ui-icon-contact"></span>Categories</a>
+			<a class="nav" href="/tags/"># Discover</a> 
+			<a class="nava" href="/profile_list/">@ Connect</a> 
+			
+			{% if username %}
+  			<a class="active" href="/create_pick/"><span style="display:inline-block" class="ui-icon ui-icon-document"></span>Compose Post</a>
+			<a class="nav" id="login" href="/user/{{ uid }}"><span style="display:inline-block" class="ui-icon ui-icon-person"></span>{{ username }} </a>
+			<a class="nav" href="/profile/"><span style="display:inline-block" class="ui-icon ui-icon-gear"></span>Manage Account </a>
+			<a class="nav" href="/logout/"><span style="display:inline-block" class="ui-icon ui-icon-locked"></span>Sign Out </a>
+			
+			{% else %}
+			<a class="nav" id="login" href="/login/"><span style="display:inline-block" class="ui-icon ui-icon-key"></span>Sign In </a>
+			<a class="nav" href="/register/"><span style="display:inline-block" class="ui-icon ui-icon-person"></span>Sign Up </a>
+			<a class="nav" href="/forgot/"><span style="display:inline-block" class="ui-icon ui-icon-help"></span>Forgot Password </a>
+			{% endif %}			
+	</nav>
+	
+{% endblock %}
+
+{% block content %}
+<br><br><br>
+<article class="small" style="height:250px;width:800px;" class="coolshadow">
+	<form action="/create_url/" method="post" enctype="multipart/form-data">{% csrf_token %}
+	<br>
+	<table>
+	
+	{{form.as_table}}
+	<!-- ul , p , table -->
+	</table>
+		<br>
+
+
+	<input type="submit" value="Create Article">
+	
+	<br>
+	</form>
+</article>
+
+<script>
+$("select").selectBoxIt();
+</script>
+
+<style>
+input[type=text]
+{
+	width:650px;
+}
+
+input[type=file]
+{
+	margin-left:5%;
+}
+
+textarea
+{
+	width:650px;
+	height:40px;
+}
+
+#id_categoriesSelectBoxItContainer
+{
+	margin-left:5%;
+	width:150px;
+}
+</style>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock %}
+

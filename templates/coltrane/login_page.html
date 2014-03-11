@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+
+{% block nav %}
+
+	<nav> 
+			<a class="nav" href="/weblog/"><span style="display:inline-block" class="ui-icon ui-icon-home"></span>Home</a> 
+			<a class="nav" href="/categories/"><span style="display:inline-block" class="ui-icon ui-icon-contact"></span>Categories</a>
+			<a class="nav" href="/tags/"># Discover</a> 
+			<a class="nava" href="/profile_list/">@ Connect</a> 
+			
+			{% if username %}
+  			<a class="nav" href="/create_pick/"><span style="display:inline-block" class="ui-icon ui-icon-document"></span>Compose Post</a>
+			<a class="nav" id="login" href="/user/{{ uid }}"><span style="display:inline-block" class="ui-icon ui-icon-person"></span>{{ username }} </a>
+			<a class="nav" href="/profile/"><span style="display:inline-block" class="ui-icon ui-icon-gear"></span>Manage Account </a>
+			<a class="nav" href="/logout/"><span style="display:inline-block" class="ui-icon ui-icon-locked"></span>Sign Out </a>
+			
+			{% else %}
+			<a class="active" id="login" href="/login/"><span style="display:inline-block" class="ui-icon ui-icon-key"></span>Sign In </a>
+			<a class="nav" href="/register/"><span style="display:inline-block" class="ui-icon ui-icon-person"></span>Sign Up </a>
+			<a class="nav" href="/forgot/"><span style="display:inline-block" class="ui-icon ui-icon-help"></span>Forgot Password </a>
+			{% endif %}			
+	</nav>
+	
+{% endblock %}
+	
+{% block content %}
+
+<style>
+label
+{
+float:left;
+}
+
+input.r
+{
+float:right;
+}
+</style>
+	
+	{% if form.errors %}
+	<br>
+		<p class="error">Sorry, that's not a valid username or password</p>
+	{% endif %}
+	
+	<br>
+	<article style="height:380px;" class="coolshadow">
+		<p style="color:red;">
+		{{error}}
+		</p>
+		<br>
+		<p style="color:#634271;">{{notice}}</p>
+	<br>
+	
+		<div class="outer">
+			<form style="float:left;" action="/auth/" method="get">
+				<label for="username">User name:</label>
+				<input class="r" type="text" name="username" value="" id="username">
+				<br> <br>
+				<label for="password">Password:</label>
+				<input class="r" type="password" name="password" value="" id="password">
+				<br> <br>
+				<input class="r" type="submit" value="login" />
+			</form>
+		</div>
+		
+	</article>
+	
+{% endblock %}

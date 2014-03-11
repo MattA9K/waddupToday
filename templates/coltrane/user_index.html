@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+
+
+
+
+{% block nav %}
+
+	<nav> 
+			<a class="nav" href="/weblog/"><span style="display:inline-block" class="ui-icon ui-icon-home"></span>Home</a> 
+			<a class="nav" href="/categories/"><span style="display:inline-block" class="ui-icon ui-icon-contact"></span>Categories</a>
+			<a class="nav" href="/tags/"># Discover</a> 
+			<a class="nava" href="/profile_list/">@ Connect</a> 
+			
+			{% if username %}
+  			<a class="nav" href="/create_pick/"><span style="display:inline-block" class="ui-icon ui-icon-document"></span>Compose Post</a>
+			<a class="nav" id="login" href="/user/{{ uid }}"><span style="display:inline-block" class="ui-icon ui-icon-person"></span>{{ username }} </a>
+			<a class="nav" href="/profile/"><span style="display:inline-block" class="ui-icon ui-icon-gear"></span>Manage Account </a>
+			<a class="nav" href="/logout/"><span style="display:inline-block" class="ui-icon ui-icon-locked"></span>Sign Out </a>
+			
+			{% else %}
+			<a class="nav" id="login" href="/login/"><span style="display:inline-block" class="ui-icon ui-icon-key"></span>Sign In </a>
+			<a class="nav" href="/register/"><span style="display:inline-block" class="ui-icon ui-icon-person"></span>Sign Up </a>
+			<a class="nav" href="/forgot/"><span style="display:inline-block" class="ui-icon ui-icon-help"></span>Forgot Password </a>
+			{% endif %}			
+	</nav>
+	
+{% endblock %}
+
+
+
+
+
+{% block content %}
+<p style="color:red;">
+{{error}}
+</p>
+	<h1>Latest posts by {{ this_user.username }}</h1>
+	<br><br><br><br>
+		{% for entry in entry_list %}
+	<div onclick="window.open('/weblog/{{ entry.id }}/')" class="outer">
+				{% if entry.thumbnail %}
+		<section  class="inner" style="background-image:url('/static/uploaded_files/{{entry.thumbnail}}');">
+				{% endif %}				
+		</section>
+			
+		<div class="inner2">
+		<h4 >{{ entry.title }}</h4>
+		<p id="demo"></p>
+		
+			<p class="entry">
+				{% if "youtube.com" in entry.body %}
+	<div style="z-index:100; padding-left:5px; margin-top:80px;">
+					<script>
+					var youtube = "{{ entry.body }}"
+					var processed = youtube.substring(32);
+					document.write('<iframe width="275" height="180" src="//www.youtube.com/embed/'+processed+'" frameborder="0" allowfullscreen></iframe>');
+					</script>
+	</div> 
+	
+    			{% elif "vimeo.com" in entry.body %}
+<iframe src="//player.vimeo.com/video/{{ entry.body|cut:'http://vimeo.com/' }}" width="275" height="180" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				{% else %}
+				  {{ entry.body|truncatewords_html:"70"|safe }}
+				{% endif %}
+	
+			</p>
+
+				<p class="post_data1">
+				<a href="/weblog/{{ entry.id }}" class="btna">Rate</a>
+				</p>
+				<p class="post_data2">{{entry.rating_current}}</p>	
+				<p class="post_data3">Comments: {{ entry.num_comments }}</p>
+				<p class="post_data4">Views: {{ entry.num_views }}</p>		
+				
+		</div>
+   	</div>
+	
+		{% endfor %}
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock %}
+
+
+
+		

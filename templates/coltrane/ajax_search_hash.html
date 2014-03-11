@@ -1,0 +1,13 @@
+{% if hashtags.count > 0 %}
+
+{% for hashtag in hashtags %}
+
+	<li><a href="/tags/{{ hashtag.id }}/">#{{ hashtag.title }}</a></li>
+
+{% endfor %}
+
+{% else %}
+
+<li>None to show!</li>
+
+{% endif %}

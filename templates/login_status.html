@@ -1,0 +1,12 @@
+{% if username %}
+<a class="nav" id="login" href="/profile/"><span style="display:inline-block" class="ui-icon ui-icon-person"></span>{{ username }} </a>
+<a class="nav" href="/profile/"><span style="display:inline-block" class="ui-icon ui-icon-gear"></span>Manage Account </a>
+<a class="nav" href="/logout/"><span style="display:inline-block" class="ui-icon ui-icon-locked"></span>Sign Out </a>
+
+{% else %}
+<a class="nav" id="login" href="/login/"><span style="display:inline-block" class="ui-icon ui-icon-key"></span>Sign In </a>
+<a class="nav" href="/register/"><span style="display:inline-block" class="ui-icon ui-icon-person"></span>Sign Up </a>
+<a class="nav" href="/forgot/"><span style="display:inline-block" class="ui-icon ui-icon-help"></span>Forgot Password </a>
+
+{% endif %}
+

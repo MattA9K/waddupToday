@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+
+
+
+
+{% block nav %}
+
+	<nav> 
+			<a class="nav" href="/weblog/"><span style="display:inline-block" class="ui-icon ui-icon-home"></span>Home</a> 
+			<a class="nav" href="/categories/"><span style="display:inline-block" class="ui-icon ui-icon-contact"></span>Categories</a>
+			<a class="nav" href="/tags/"># Discover</a> 
+			<a class="nava" href="/profile_list/">@ Connect</a> 
+			
+			{% if username %}
+  			<a class="nav" href="/create_pick/"><span style="display:inline-block" class="ui-icon ui-icon-document"></span>Compose Post</a>
+			<a class="nav" id="login" href="/user/{{ uid }}"><span style="display:inline-block" class="ui-icon ui-icon-person"></span>{{ username }} </a>
+			<a class="active" href="/profile/"><span style="display:inline-block" class="ui-icon ui-icon-gear"></span>Manage Account </a>
+			<a class="nav" href="/logout/"><span style="display:inline-block" class="ui-icon ui-icon-locked"></span>Sign Out </a>
+			
+			{% else %}
+			<a class="nav" id="login" href="/login/"><span style="display:inline-block" class="ui-icon ui-icon-key"></span>Sign In </a>
+			<a class="nav" href="/register/"><span style="display:inline-block" class="ui-icon ui-icon-person"></span>Sign Up </a>
+			<a class="nav" href="/forgot/"><span style="display:inline-block" class="ui-icon ui-icon-help"></span>Forgot Password </a>
+			{% endif %}			
+	</nav>
+	
+{% endblock %}
+
+
+{% block content %}
+
+<article style="text-align:left; width:500px; padding:15px;" class="small">
+		<h1>{{username}}</h1>
+		<br><br>
+		<i>{{firstname}} </i>
+		
+		<i>{{lastname}}</i>
+		<p>
+		Total posts: {{num_posts}}</p>
+		<p>
+		Views received from all posts: {{num_views}}</p>
+		<p>
+		Total comments: {{num_comments}}</p>
+		<p>
+		Likes received from all posts: {{num_likes}}</p>
+		
+		<p>{{bio}}</p>
+		
+		<p><a href="{{website}}">{{website}}</a></p>
+		
+		<br><br>
+		<a href="/update_profile/">Change Profile Picture, Bio and Website URL</a>
+		<br>
+		<img width="502" src="/static/uploaded_files/{{avatar}}" alt="" />
+</article>
+		
+{% endblock %}
+		

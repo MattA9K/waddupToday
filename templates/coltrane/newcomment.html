@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<form action="/add_comment/{{entry.id}}/" method="post" enctype="multipart/form-data">{% csrf_token %}
+
+<ul>
+{{form.as_ul}}
+<!-- ul , p , table -->
+</ul>
+
+<a href="#" class="button blue" style="opacity: 1; float:right; margin-top:15px;">
+<input type="submit" value="Add Comment">
+</a>
+
+</form>
+
+{% endblock %}
+
