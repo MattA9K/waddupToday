@@ -75,7 +75,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'SQL_django',
         'USER': 'root',
-        'PASSWORD': 'waddupData',
+        'PASSWORD': 'password',
         'HOST': '127.0.0.1',
     }
 }
