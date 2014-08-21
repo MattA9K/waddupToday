@@ -15,7 +15,7 @@ This web application was specifically designed for APACHE.
 
 make sure you pip/apt-get the dependencies in order for this app to run properly.
 
-DEPENDENCIES
+Dependencies
 ============
 pip install markdown
 pip install django-tagging
