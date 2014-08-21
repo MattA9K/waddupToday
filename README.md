@@ -17,11 +17,13 @@ make sure you pip/apt-get the dependencies in order for this app to run properly
 
 Dependencies
 ============
+```
 pip install markdown
 pip install django-tagging
 sudo apt-get install mysql-server
 apt-get install python-mysqldb
 pip install django==1.6.1
+```
 
 DEMO
 ====
