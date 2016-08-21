@@ -45,11 +45,11 @@ INSTALLED_APPS = (
 )
 
 
-STATIC_URL = '/var/www/django_site/static/'
+STATIC_URL = '/opt/django/app/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
-    '/var/www/django_site/static/',
+    '/opt/django/app/static/',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -72,11 +72,8 @@ WSGI_APPLICATION = 'cms.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'SQL_django',
-        'USER': 'root',
-        'PASSWORD': 'password',
-        'HOST': '127.0.0.1',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
     }
 }
 
@@ -99,10 +96,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = '/var/www/django_site/static/uploaded_files'
+MEDIA_ROOT = '/opt/django/app/static/uploaded_files'
 
 TEMPLATE_DIRS = (
-	'/var/www/django_site/templates',
+	'/opt/django/app/templates',
 )
 
 CONTEXT_PROCESSORS = (
