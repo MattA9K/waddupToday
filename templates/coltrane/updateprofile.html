@@ -3,18 +3,18 @@
 
 {% block content %}
 
-<form action="/update_profile/" method="post" enctype="multipart/form-data">{% csrf_token %}
+    <form action="/update_profile/" method="post" enctype="multipart/form-data">{% csrf_token %}
 
-<ul>
-{{form.as_ul}}
-<!-- ul , p , table -->
-</ul>
+        <ul>
+            {{ form.as_ul }}
+            <!-- ul , p , table -->
+        </ul>
 
-<a href="#" class="button blue" style="opacity: 1; float:right; margin-top:15px;">
-<input type="submit" value="Update Profile">
-</a>
+        <a href="#" class="button blue" style="opacity: 1; float:right; margin-top:15px;">
+            <input type="submit" value="Update Profile">
+        </a>
 
-</form>
+    </form>
 
 {% endblock %}
 

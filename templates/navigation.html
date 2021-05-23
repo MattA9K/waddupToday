@@ -1,12 +1,11 @@
+<nav>
+    <a class="nav" href="/create/"><span style="display:inline-block" class="ui-icon ui-icon-document"></span>Compose
+        Post</a>
+    <a class="nav" href="/weblog/"><span style="display:inline-block" class="ui-icon ui-icon-home"></span>Home</a>
+    <a class="nav" href="/tags/"># Discover</a>
+    <a class="nav" href="#">@ Connect</a>
+    {% include "login_status.html" %}
+</nav>
 
-	
-	<nav>
-  			<a class="nav" href="/create/"><span style="display:inline-block" class="ui-icon ui-icon-document"></span>Compose Post</a> 
-			<a class="nav" href="/weblog/"><span style="display:inline-block" class="ui-icon ui-icon-home"></span>Home</a> 
-			<a class="nav" href="/tags/"># Discover</a> 
-			<a class="nav" href="#">@ Connect</a> 
-			{% include "login_status.html" %} 		
-	</nav>
-
-{% if request.get_full_path = "http://162.243.203.65/weblog/" %}	
+{% if request.get_full_path = "http://162.243.203.65/weblog/" %}
 {% endif %}

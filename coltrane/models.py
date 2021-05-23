@@ -171,9 +171,14 @@ class Link(models.Model):
 	enable_comments = models.BooleanField(default=True)
 	post_elsewhere = models.BooleanField('Post to Delicious', default=True)
 	
-	via_name = models.CharField('Via', max_length=250, blank=True, help_text='The name of the person whose site you spotted the link on. Optional.')
-	via_url = models.URLField('Via URL', blank=True, help_text='The URL of the site where you spotted the link. Optional.')
-								
+	via_name = models.CharField('Via',
+								max_length=250,
+								blank=True,
+								help_text='The name of the person whose site you spotted the link on. Optional.')
+	via_url = models.URLField('Via URL',
+							  blank=True,
+							  help_text='The URL of the site where you spotted the link. Optional.')
+
 	class Meta:
 		ordering = ['-pub_date']
 		
@@ -192,10 +197,16 @@ class Link(models.Model):
 		super(Link, self).save()
 	
 	def get_absolute_url(self):
-		return ('coltrane_link_detail', (), { 'year': self.pub_date.strftime('%Y'),
-											'month': self.pub_date.strftime('%b').lower(),
-											'day': self.pub_date.strftime('%d'),
-											'slug': self.slug })
+		return (
+			'coltrane_link_detail',
+			(),
+			{
+				'year': self.pub_date.strftime('%Y'),
+				'month': self.pub_date.strftime('%b').lower(),
+				'day': self.pub_date.strftime('%d'),
+				'slug': self.slug
+			}
+		)
 	get_absolute_url = models.permalink(get_absolute_url)
 	
 	

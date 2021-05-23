@@ -2,88 +2,83 @@
 <html>
 
 <head>
-	{% load staticfiles %}
-	<link href='http://fonts.googleapis.com/css?family=Codystar' rel='stylesheet' type='text/css'>
-	
-	<!-- LIGHT BOX ADD ON -->	
-	<script src="{% static "js/jquery-2.1.0.min.js" %}"></script>
-	<script src="{% static "js/jquery-ui-1.10.4.custom.js" %}"></script>
-	<link rel="stylesheet" type="text/css"  href="{% static "style.css" %}">
-	<link rel="stylesheet" type="text/css"  href="{% static "jquery.selectBoxIt.css" %}">
-	<link href="{% static "jquery-ui-1.10.4.custom.css" %}" rel="stylesheet">
-	<script src="{% static "js/script.js" %}"></script>
-	<script src="{% static "js/jquery.selectBoxIt.min.js" %}"></script>
-	
-	<link rel="stylesheet" href="{% static "css/lightbox.css" %}" media="screen"/>
-	<script src="{% static "js/lightbox-2.6.min.js" %}"></script>
-	<script src="{% static "js/modernizr.custom.js" %}"></script>
+    {% load staticfiles %}
+    <link href='http://fonts.googleapis.com/css?family=Codystar' rel='stylesheet' type='text/css'>
+
+    <!-- LIGHT BOX ADD ON -->
+    <script src="{% static "js/jquery-2.1.0.min.js" %}"></script>
+    <script src="{% static "js/jquery-ui-1.10.4.custom.js" %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static "style.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "jquery.selectBoxIt.css" %}">
+    <link href="{% static "jquery-ui-1.10.4.custom.css" %}" rel="stylesheet">
+    <script src="{% static "js/script.js" %}"></script>
+    <script src="{% static "js/jquery.selectBoxIt.min.js" %}"></script>
+
+    <link rel="stylesheet" href="{% static "css/lightbox.css" %}" media="screen"/>
+    <script src="{% static "js/lightbox-2.6.min.js" %}"></script>
+    <script src="{% static "js/modernizr.custom.js" %}"></script>
 
 </head>
 
 <body>
 
 
+<script>
+    $(function () {
 
-		<script>
-			$(function(){
-			
-					$('#search').keyup(function() {
-		
-							$.ajax({
-								type: "GET",
-								url: "/search/",
-								data: {
-									'search_text' : $('#search').val()
-								},
-								success: searchSuccess,
-								dataType: 'html'
-							});
-					});
-					
-			});
-	
-			function searchSuccess(data, textStatus, jqXHR)
-			{
-				$('#search-results').show();
-				$('#search-results').html(data);
-			}
-		</script>
+        $('#search').keyup(function () {
+
+            $.ajax({
+                type: "GET",
+                url: "/search/",
+                data: {
+                    'search_text': $('#search').val()
+                },
+                success: searchSuccess,
+                dataType: 'html'
+            });
+        });
+
+    });
+
+    function searchSuccess(data, textStatus, jqXHR) {
+        $('#search-results').show();
+        $('#search-results').html(data);
+    }
+</script>
 
 
-	<header>
-			<h1 class="header">WaddupToday</h1>
-			
-			<div class="wrapper_search">
-					<input class="search" type="text" id="search" name="search" placeholder="Search..." />			
-						<ul id="search-results">
-						</ul> 
-			</div>
-	</header>
-	
+<header>
+    <h1 class="header">WaddupToday</h1>
 
-	
-	
-	{% block nav %}
-	{% endblock %}
-	
-	
-	<br><BR><BR><BR><br><br>
-	
-	
+    <div class="wrapper_search">
+        <input class="search" type="text" id="search" name="search" placeholder="Search..."/>
+        <ul id="search-results">
+        </ul>
+    </div>
+</header>
 
-	
-	
-	<center>
-	<div class="everything">
-	
-			{% block content %}
-			{% endblock %}
 
-	</div>
 
-	</center>
 
-	{% include "coltrane/footer.html" %}
+{% block nav %}
+{% endblock %}
+
+
+<br><BR><BR><BR><br><br>
+
+
+<center>
+    <div class="everything">
+
+        {% block content %}
+        {% endblock %}
+
+    </div>
+
+</center>
+
+{% include "coltrane/footer.html" %}
 
 </body>
 </html>

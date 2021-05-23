@@ -2,37 +2,36 @@
 
 {% block content %}
 
-<br><br><br><br>
+    <br><br><br><br>
 
-					<input type="text" id="search" name="search" placeholder="Find Username"/>			
-						
-						
-						<ul id="search-results">
-						
-						</ul>
-						
-						
-		<script>
-			$(function(){
-		
-		$('#search').keyup(function() {
+    <input type="text" id="search" name="search" placeholder="Find Username"/>
 
-					$.ajax({
-						type: "GET",
-						url: "/search/",
-						data: {
-							'search_text' : $('#search').val()
-						},
-						success: searchSuccess,
-						dataType: 'html'
-					});
-				});
-			});
-	
-			function searchSuccess(data, textStatus, jqXHR)
-			{
-				$('#search-results').html(data);
-			}
-		</script>
-	
+
+    <ul id="search-results">
+
+    </ul>
+
+
+    <script>
+        $(function () {
+
+            $('#search').keyup(function () {
+
+                $.ajax({
+                    type: "GET",
+                    url: "/search/",
+                    data: {
+                        'search_text': $('#search').val()
+                    },
+                    success: searchSuccess,
+                    dataType: 'html'
+                });
+            });
+        });
+
+        function searchSuccess(data, textStatus, jqXHR) {
+            $('#search-results').html(data);
+        }
+    </script>
+
 {% endblock %}

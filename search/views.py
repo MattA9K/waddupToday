@@ -20,7 +20,8 @@ from django.contrib.flatpages.models import FlatPage
 
 def search(request):
 	query = request.GET['q']
+	rs = FlatPage.objects.filter(content__icontains=query)
+	ojs = { 'query': query,
+			'results': rs }
 	return render_to_response('search.html',
-								{ 'query':query,
-								'results': FlatPage.objects.filter(
-										content__icontains=query) })
+								ojs)

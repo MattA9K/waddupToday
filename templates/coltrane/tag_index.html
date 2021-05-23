@@ -2,104 +2,111 @@
 
 {% block nav %}
 
-	<nav> 
-			<a class="nav" href="/weblog/"><span style="display:inline-block" class="ui-icon ui-icon-home"></span>Home</a> 
-			<a class="nav" href="/categories/"><span style="display:inline-block" class="ui-icon ui-icon-contact"></span>Categories</a>
-			<a class="active" href="/tags/"># Discover</a> 
-			<a class="nava" href="/profile_list/">@ Connect</a> 
-			
-			{% if username %}
-  			<a class="nav" href="/create_pick/"><span style="display:inline-block" class="ui-icon ui-icon-document"></span>Compose Post</a>
-			<a class="nav" id="login" href="/user/{{ uid }}"><span style="display:inline-block" class="ui-icon ui-icon-person"></span>{{ username }} </a>
-			<a class="nav" href="/profile/"><span style="display:inline-block" class="ui-icon ui-icon-gear"></span>Manage Account </a>
-			<a class="nav" href="/logout/"><span style="display:inline-block" class="ui-icon ui-icon-locked"></span>Sign Out </a>
-			
-			{% else %}
-			<a class="nav" id="login" href="/login/"><span style="display:inline-block" class="ui-icon ui-icon-key"></span>Sign In </a>
-			<a class="nav" href="/register/"><span style="display:inline-block" class="ui-icon ui-icon-person"></span>Sign Up </a>
-			<a class="nav" href="/forgot/"><span style="display:inline-block" class="ui-icon ui-icon-help"></span>Forgot Password </a>
-			{% endif %}			
-	</nav>
-	
+    <nav>
+        <a class="nav" href="/weblog/"><span style="display:inline-block" class="ui-icon ui-icon-home"></span>Home</a>
+        <a class="nav" href="/categories/"><span style="display:inline-block" class="ui-icon ui-icon-contact"></span>Categories</a>
+        <a class="active" href="/tags/"># Discover</a>
+        <a class="nava" href="/profile_list/">@ Connect</a>
+
+        {% if username %}
+            <a class="nav" href="/create_pick/"><span style="display:inline-block"
+                                                      class="ui-icon ui-icon-document"></span>Compose Post</a>
+            <a class="nav" id="login" href="/user/{{ uid }}"><span style="display:inline-block"
+                                                                   class="ui-icon ui-icon-person"></span>{{ username }}
+            </a>
+            <a class="nav" href="/profile/"><span style="display:inline-block" class="ui-icon ui-icon-gear"></span>Manage
+                Account </a>
+            <a class="nav" href="/logout/"><span style="display:inline-block" class="ui-icon ui-icon-locked"></span>Sign
+                Out </a>
+
+        {% else %}
+            <a class="nav" id="login" href="/login/"><span style="display:inline-block"
+                                                           class="ui-icon ui-icon-key"></span>Sign In </a>
+            <a class="nav" href="/register/"><span style="display:inline-block" class="ui-icon ui-icon-person"></span>Sign
+                Up </a>
+            <a class="nav" href="/forgot/"><span style="display:inline-block" class="ui-icon ui-icon-help"></span>Forgot
+                Password </a>
+        {% endif %}
+    </nav>
+
 {% endblock %}
 
 
 {% block content %}
 
-		<script>
-			$(function(){
-			
-					$('#search-hash').keyup(function() {
-		
-							$.ajax({
-								type: "GET",
-								url: "/search_hash/",
-								data: {
-									'search_text_hash' : $('#search-hash').val()
-								},
-								success: searchSuccess,
-								dataType: 'html'
-							});
-					});
-					
-			});
-	
-			function searchSuccess(data, textStatus, jqXHR)
-			{
-				$('#search-results-hash').show();
-				$('#search-results-hash').html(data);
-			}
-		</script>
+    <script>
+        $(function () {
 
-<div class="everything">
-<br>
-			
-	<br><br><br><br>
-	
-	<article class="small" style="width:50%; display:block; position: absolute; right:10%; top:20%">
-	<h2 style="color:white; text-align:left; padding-left:13px;">All Hashtags</h2>
-			{% for hashtag in tag_list %}
-				
-					<a class="hashtag" href="/tags/{{ hashtag.id }}/">#{{ hashtag }}</a>
-	
-			{% endfor %}
-			
-			<div class="wrapper_search_hash">
-					<input class="search-hash" type="text" id="search-hash" name="search-hash" placeholder="Search Hashtags"/>			
-						<ul id="search-results-hash">
-						</ul> 
-			</div>
-			
-	</article>
-	
-	
-	<article class="small" style="width:29%; display:inline-block; position: absolute; left:10%; top:20%">
-	
-		<h2 style="color:white; text-align:left; padding-left:13px;">Most Popular</h2>
-			{% for hashtag in most_used %}
-				
-					<a class="hashtag" href="/tags/{{ hashtag.id }}/">#{{ hashtag }}</a>
-	
-			{% endfor %}
-	</article>
-	<br><br><br>
-	<article class="small" style="width:29%; display:inline-block; position: absolute; left:10%; top:50%">
-	
-		<h2 style="color:white; text-align:left; padding-left:13px;">Recently Trending</h2>
-			{% for hashtag in recent %}
-				
-					<a class="hashtag" href="/tags/{{ hashtag.id }}/">#{{ hashtag }}</a>
-	
-			{% endfor %}
-	</article>
-	
+            $('#search-hash').keyup(function () {
 
-	
-</div>
-	
+                $.ajax({
+                    type: "GET",
+                    url: "/search_hash/",
+                    data: {
+                        'search_text_hash': $('#search-hash').val()
+                    },
+                    success: searchSuccess,
+                    dataType: 'html'
+                });
+            });
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        });
+
+        function searchSuccess(data, textStatus, jqXHR) {
+            $('#search-results-hash').show();
+            $('#search-results-hash').html(data);
+        }
+    </script>
+
+    <div class="everything">
+        <br>
+
+        <br><br><br><br>
+
+        <article class="small" style="width:50%; display:block; position: absolute; right:10%; top:20%">
+            <h2 style="color:white; text-align:left; padding-left:13px;">All Hashtags</h2>
+            {% for hashtag in tag_list %}
+
+                <a class="hashtag" href="/tags/{{ hashtag.id }}/">#{{ hashtag }}</a>
+
+            {% endfor %}
+
+            <div class="wrapper_search_hash">
+                <input class="search-hash" type="text" id="search-hash" name="search-hash"
+                       placeholder="Search Hashtags"/>
+                <ul id="search-results-hash">
+                </ul>
+            </div>
+
+        </article>
 
 
-	
+        <article class="small" style="width:29%; display:inline-block; position: absolute; left:10%; top:20%">
+
+            <h2 style="color:white; text-align:left; padding-left:13px;">Most Popular</h2>
+            {% for hashtag in most_used %}
+
+                <a class="hashtag" href="/tags/{{ hashtag.id }}/">#{{ hashtag }}</a>
+
+            {% endfor %}
+        </article>
+        <br><br><br>
+        <article class="small" style="width:29%; display:inline-block; position: absolute; left:10%; top:50%">
+
+            <h2 style="color:white; text-align:left; padding-left:13px;">Recently Trending</h2>
+            {% for hashtag in recent %}
+
+                <a class="hashtag" href="/tags/{{ hashtag.id }}/">#{{ hashtag }}</a>
+
+            {% endfor %}
+        </article>
+
+
+    </div>
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
 {% endblock %}

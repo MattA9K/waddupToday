@@ -1,252 +1,259 @@
 <!DOCTYPE html>
 <html>
 {% load staticfiles %}
-  <head>
-  
+<head>
+
     <script src="{% static "homepage/js/jquery.js" %}"></script>
     <script src="{% static "homepage/js/retina.min.js" %}"></script>
     <script src="{% static "homepage/js/animatescroll.js" %}"></script>
     <script src="{% static "homepage/js/scripts.js" %}"></script>
     <script src="{% static "homepage/js/retina-1.1.0.min.js" %}"></script>
-  
+
     <title>WaddupToday</title>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- CSS 
         ================================================== -->
     <!-- Bootstrap 3-->
     <link href="{% static "homepage/css/bootstrap.min.css" %}" rel="stylesheet" media="screen">
     <!-- Google Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic|Roboto+Condensed:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic|Roboto+Condensed:300italic,400italic,700italic,400,300,700'
+          rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700'
+          rel='stylesheet' type='text/css'>
     <!-- Template Styles -->
     <link href="{% static "homepage/css/style.css" %}" rel="stylesheet" media="screen">
-      </head>
-  <body>
-	  
-	  <!-- NAVBAR
-	      ================================================== -->
-	  <nav class="navbar navbar-default" role="navigation">
-	  	  <div class="container">
-			  <div class="navbar-header">
-			    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-			      <span class="sr-only">Toggle navigation</span>
-			      <span class="icon-bar"></span>
-			      <span class="icon-bar"></span>
-			      <span class="icon-bar"></span>
-			    </button>
-			    
-			    <!--Replace text with your app name or logo image-->
-			    <a class="navbar-brand" href="#">WaddupToday</a>
-			    
-			  </div>
-			  <div class="collapse navbar-collapse navbar-ex1-collapse">
-			    <ul class="nav navbar-nav">
-			      <li><a href="/login/" onclick="$('.detail').animatescroll({padding:71});">Log In</a></li>
-			      <li><a onclick="$('.signup').animatescroll({padding:71});">Sign Up</a></li>
-			      <li><a onclick="$('.features').animatescroll({padding:71});">Features</a></li>
-			      <li><a onclick="$('.social').animatescroll({padding:71});">Follow Us</a></li>
-			    </ul>
-			  </div>
-		  </div>
-	  </nav>
-	  
-	  
-	   <!-- HEADER
-	   ================================================== -->	  
-	  <header>
-		 <div class="container">
-			 <div class="row">
-				 <div class="col-md-12">
-					  <h1>WaddupToday</h1>
-					  <p class="lead">Show off your content, explore your interests and become known</p>
-					  
-					  <div class="carousel-iphone">
-					  	<div id="carousel-example-generic" class="carousel slide">
-					    
+</head>
+<body>
 
-					  </div>
-					</div>
-				</div>	  
-			</div>    
-		</div>
-	 </header>
-	  
-	  
-	  <!-- PURCHASE
-	      ================================================== -->
-	  <section class="purchase">
-		  <div class="container">
-			  <div class="row">
-				  <div class="col-md-offset-2 col-md-8">
-					 <h1>New to WaddupToday?</h1>
-					 	    <a href="#" onclick="$('.signup').animatescroll({padding:71});"><p class="lead">Click here to sign up for free</p></a>
-					 	    	
-				  </div>
-			  </div>
-		  </div>
-	  </section>
-	  
-	  
-	  <!-- PAYOFF 
-	      ================================================== -->
-	  <section class="payoff">
-		<div class="container">
-			  <div class="row">
-				  <div class="col-md-12">
-					  <h1>Instantly share your personal blog, photography portfolio, videos and more.</h1>
-				  </div>
-			  </div>
-		  </div>	  
-	  </section>
-	  
-	  
-	  <!-- DETAILS 
-	      ================================================== -->
-	  <section class="detail">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div id="carousel-example-generic-2" class="carousel slide">
-						
-										
-					  <!-- Wrapper for slides -->
-					  <div class="carousel-inner">
-					    <div class="item active">
-					      	<div class="row">
-					      		<div class="col-sm-12 col-md-offset-1 col-md-6">
-					      			<h1>Watch Your Popularity Rise</h1>
-					      			<p>Thanks to our advanced Django framework, WaddupToday can accurately track the progress of your account based on the feedback your account receives from the community.</p>
-					      		</div>
-					      		<div class="col-sm-12 col-md-5">
-					      			<div class="app-screenshot">
-					      				<img src="{% static "homepage/img/screenshots/app-3.png" %}" class="img-responsive" alt="App Screen 1">
-					      			</div>
-					      		</div>
-					      	</div>
-					    </div>
-					  </div>
-					
+<!-- NAVBAR
+    ================================================== -->
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	
-	  
-	  <!-- FEATURES
-	      ================================================== -->
-	  <section class="features">
-		  <div class="container">
-			  <div class="row">
-				
-				  <div class="col-md-4">
-					  <div class="circle"><i class="icon-bookmark"></i></div>
-					  <h2>your content</h2>
-					  <p>We make it easy for artists, photographers, and musicians to post their talent easily &amp; quickly.</p>
-				  </div>
-				
-				  <div class="col-md-4">
-					  <div class="circle"><i class="icon-keypad"></i></div>
-					  <h2>find talent</h2>
-					  <p>See what other people are creating, find the best of the best or join them.</p>
-				  </div>
-				 
-				  <div class="col-md-4">
-					  <div class="circle"><i class="icon-like"></i></div>
-					  <h2>get noticed</h2>
-					  <p>Post your greatest work and track its feedback gained from the WaddupToday community.</p>
-				  </div>
-				  
-			  </div>
-		  </div>
-	  </section>
-	  
-	
-	 <!-- SOCIAL
-	     ================================================== -->
-	  <section class="social">
-	  	<div class="container">
-	  		  <div class="row">
-	  			  <div class="col-md-12">
-	  			  	<h2>Connect with us</h2>
-	  			   	<a class="icon-facebook"></a>
-	  			   	<a class="icon-twitter"></a>
-	  			   	<a class="icon-google"></a>
-	  			   	<a class="icon-instagram"></a>
-	  			   	<a class="icon-pinterest"></a>
-	  			   </div>
-	  		  </div>
-	  	  </div>	  
-	  </section>
-	  
-	
-	 <!-- GET IT 
-	     ================================================== -->
-	  <section class="get-it">
-	  	<div class="container">
-	  		<div class="row">
-	  			<div class="col-md-12">
-	  				<h1 class="signup">Not A Member Of WaddupToday?</h1>
-	  				<p class="lead">Sign Up</p>
+            <!--Replace text with your app name or logo image-->
+            <a class="navbar-brand" href="#">WaddupToday</a>
 
-					<article style="height:580px;" class="coolshadow">
-					
-					<br>
-					
-					<p style="color:red;">{{error}}</p>
-						<div style="margin-left:38%; float:left; text-align:left;" class="outer">
-							<form action="/register_process/" method="get">
-								<br> <br>
-								<label for="username">User name:</label>
-								<input style="float:right;" type="text" name="username" value="" id="username">
-								<br> <br>
-								<label for="password">Password:</label>
-								<input style="float:right;" type="password" name="password" value="" id="password">
-								<br> <br>
-								<label for="repassword">Retype Password:</label>
-								<input style="float:right;" type="password" name="repassword" value="" id="repassword">
-								<br> <br>
-								<label for="email_get">Email:</label>
-								<input style="float:right;" type="text" name="email_get" value="" id="email_get">
-								<br> <br>
-								<label for="first_name">First Name:</label>
-								<input style="float:right;" type="text" name="first_name" value="" id="first_name">
-								<br> <br>
-								<label for="last_name">Last Name:</label>
-								<input style="float:right;" type="text" name="last_name" value="" id="last_name">
-								<br> <br>
-								<input style="margin-left:40%;" type="submit" value="Sign Up" />
-							</form>
-						</div>
-					</article>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/login/" onclick="$('.detail').animatescroll({padding:71});">Log In</a></li>
+                <li><a onclick="$('.signup').animatescroll({padding:71});">Sign Up</a></li>
+                <li><a onclick="$('.features').animatescroll({padding:71});">Features</a></li>
+                <li><a onclick="$('.social').animatescroll({padding:71});">Follow Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-	  			</div>
-	  			<div class="col-md-12">
-	  				<hr />
-		  			<ul>
-	                	<li><a href="#link-here">Contact</a></li>
-	                	<li><a href="#link-here">Twitter</a></li>
-	                	<li><a href="#link-here">Press</a></li>
-	                	<li><a href="#link-here">Support</a></li>
-	                	<li><a href="#link-here">Developers</a></li>
-	                	<li><a href="#link-here">Privacy</a></li>
-                	</ul>
-	  			</div>
-	  			
 
-	  		</div>
-	  	</div>
-	  </section>
-	  
-	 	  		
-	  			WaddupToday © 2014 All Rights Reserved. 
-	  			<br><br>
-	  			This application's full LAMP Stack powered by Django was developed by Mateusz Andrzejczuk
-	  			<br><br>
-	 <!-- JAVASCRIPT
-	     ================================================== -->
+<!-- HEADER
+================================================== -->
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>WaddupToday</h1>
+                <p class="lead">Show off your content, explore your interests and become known</p>
 
-  	
+                <div class="carousel-iphone">
+                    <div id="carousel-example-generic" class="carousel slide">
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<!-- PURCHASE
+    ================================================== -->
+<section class="purchase">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+                <h1>New to WaddupToday?</h1>
+                <a href="#" onclick="$('.signup').animatescroll({padding:71});"><p class="lead">Click here to sign up
+                    for free</p></a>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- PAYOFF
+    ================================================== -->
+<section class="payoff">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Instantly share your personal blog, photography portfolio, videos and more.</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- DETAILS
+    ================================================== -->
+<section class="detail">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="carousel-example-generic-2" class="carousel slide">
+
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-offset-1 col-md-6">
+                                    <h1>Watch Your Popularity Rise</h1>
+                                    <p>Thanks to our advanced Django framework, WaddupToday can accurately track the
+                                        progress of your account based on the feedback your account receives from the
+                                        community.</p>
+                                </div>
+                                <div class="col-sm-12 col-md-5">
+                                    <div class="app-screenshot">
+                                        <img src="{% static "homepage/img/screenshots/app-3.png" %}"
+                                             class="img-responsive" alt="App Screen 1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- FEATURES
+    ================================================== -->
+<section class="features">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="circle"><i class="icon-bookmark"></i></div>
+                <h2>your content</h2>
+                <p>We make it easy for artists, photographers, and musicians to post their talent easily &amp;
+                    quickly.</p>
+            </div>
+
+            <div class="col-md-4">
+                <div class="circle"><i class="icon-keypad"></i></div>
+                <h2>find talent</h2>
+                <p>See what other people are creating, find the best of the best or join them.</p>
+            </div>
+
+            <div class="col-md-4">
+                <div class="circle"><i class="icon-like"></i></div>
+                <h2>get noticed</h2>
+                <p>Post your greatest work and track its feedback gained from the WaddupToday community.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- SOCIAL
+    ================================================== -->
+<section class="social">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Connect with us</h2>
+                <a class="icon-facebook"></a>
+                <a class="icon-twitter"></a>
+                <a class="icon-google"></a>
+                <a class="icon-instagram"></a>
+                <a class="icon-pinterest"></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- GET IT
+    ================================================== -->
+<section class="get-it">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="signup">Not A Member Of WaddupToday?</h1>
+                <p class="lead">Sign Up</p>
+
+                <article style="height:580px;" class="coolshadow">
+
+                    <br>
+
+                    <p style="color:red;">{{ error }}</p>
+                    <div style="margin-left:38%; float:left; text-align:left;" class="outer">
+                        <form action="/register_process/" method="get">
+                            <br> <br>
+                            <label for="username">User name:</label>
+                            <input style="float:right;" type="text" name="username" value="" id="username">
+                            <br> <br>
+                            <label for="password">Password:</label>
+                            <input style="float:right;" type="password" name="password" value="" id="password">
+                            <br> <br>
+                            <label for="repassword">Retype Password:</label>
+                            <input style="float:right;" type="password" name="repassword" value="" id="repassword">
+                            <br> <br>
+                            <label for="email_get">Email:</label>
+                            <input style="float:right;" type="text" name="email_get" value="" id="email_get">
+                            <br> <br>
+                            <label for="first_name">First Name:</label>
+                            <input style="float:right;" type="text" name="first_name" value="" id="first_name">
+                            <br> <br>
+                            <label for="last_name">Last Name:</label>
+                            <input style="float:right;" type="text" name="last_name" value="" id="last_name">
+                            <br> <br>
+                            <input style="margin-left:40%;" type="submit" value="Sign Up"/>
+                        </form>
+                    </div>
+                </article>
+
+            </div>
+            <div class="col-md-12">
+                <hr/>
+                <ul>
+                    <li><a href="#link-here">Contact</a></li>
+                    <li><a href="#link-here">Twitter</a></li>
+                    <li><a href="#link-here">Press</a></li>
+                    <li><a href="#link-here">Support</a></li>
+                    <li><a href="#link-here">Developers</a></li>
+                    <li><a href="#link-here">Privacy</a></li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+WaddupToday © 2014 All Rights Reserved.
+<br><br>
+This application's full LAMP Stack powered by Django was developed by Mateusz Andrzejczuk
+<br><br>
+<!-- JAVASCRIPT
+    ================================================== -->
+
+
 </html>

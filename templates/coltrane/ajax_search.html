@@ -1,13 +1,13 @@
 {% if entries.count > 0 %}
 
-{% for entry in entries %}
+    {% for entry in entries %}
 
-	<li><a href="/weblog/{{ entry.id }}/">{{ entry.title }}</a></li>
+        <li><a href="/weblog/{{ entry.id }}/">{{ entry.title }}</a></li>
 
-{% endfor %}
+    {% endfor %}
 
 {% else %}
 
-<li>None to show!</li>
+    <li>None to show!</li>
 
 {% endif %}

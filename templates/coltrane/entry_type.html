@@ -6,45 +6,53 @@
 
 {% block nav %}
 
-	<nav> 
-			<a class="nav" href="/weblog/"><span style="display:inline-block" class="ui-icon ui-icon-home"></span>Home</a> 
-			<a class="nav" href="/categories/"><span style="display:inline-block" class="ui-icon ui-icon-contact"></span>Categories</a>
-			<a class="nav" href="/tags/"># Discover</a> 
-			<a class="nava" href="/profile_list/">@ Connect</a> 
-			
-			{% if username %}
-  			<a class="active" href="/create_pick/"><span style="display:inline-block" class="ui-icon ui-icon-document"></span>Compose Post</a>
-			<a class="nav" id="login" href="/user/{{ uid }}"><span style="display:inline-block" class="ui-icon ui-icon-person"></span>{{ username }} </a>
-			<a class="nav" href="/profile/"><span style="display:inline-block" class="ui-icon ui-icon-gear"></span>Manage Account </a>
-			<a class="nav" href="/logout/"><span style="display:inline-block" class="ui-icon ui-icon-locked"></span>Sign Out </a>
-			
-			{% else %}
-			<a class="nav" id="login" href="/login/"><span style="display:inline-block" class="ui-icon ui-icon-key"></span>Sign In </a>
-			<a class="nav" href="/register/"><span style="display:inline-block" class="ui-icon ui-icon-person"></span>Sign Up </a>
-			<a class="nav" href="/forgot/"><span style="display:inline-block" class="ui-icon ui-icon-help"></span>Forgot Password </a>
-			{% endif %}			
-	</nav>
-	
+    <nav>
+        <a class="nav" href="/weblog/"><span style="display:inline-block" class="ui-icon ui-icon-home"></span>Home</a>
+        <a class="nav" href="/categories/"><span style="display:inline-block" class="ui-icon ui-icon-contact"></span>Categories</a>
+        <a class="nav" href="/tags/"># Discover</a>
+        <a class="nava" href="/profile_list/">@ Connect</a>
+
+        {% if username %}
+            <a class="active" href="/create_pick/"><span style="display:inline-block"
+                                                         class="ui-icon ui-icon-document"></span>Compose Post</a>
+            <a class="nav" id="login" href="/user/{{ uid }}"><span style="display:inline-block"
+                                                                   class="ui-icon ui-icon-person"></span>{{ username }}
+            </a>
+            <a class="nav" href="/profile/"><span style="display:inline-block" class="ui-icon ui-icon-gear"></span>Manage
+                Account </a>
+            <a class="nav" href="/logout/"><span style="display:inline-block" class="ui-icon ui-icon-locked"></span>Sign
+                Out </a>
+
+        {% else %}
+            <a class="nav" id="login" href="/login/"><span style="display:inline-block"
+                                                           class="ui-icon ui-icon-key"></span>Sign In </a>
+            <a class="nav" href="/register/"><span style="display:inline-block" class="ui-icon ui-icon-person"></span>Sign
+                Up </a>
+            <a class="nav" href="/forgot/"><span style="display:inline-block" class="ui-icon ui-icon-help"></span>Forgot
+                Password </a>
+        {% endif %}
+    </nav>
+
 {% endblock %}
 
 
 {% block content %}
 
-<article style="text-align:left; width:570px; padding:15px;" class="small">
-<h1>What Kind of Post Would You Like To Publish?</h1>
-	<center>
-		<a class="btn" href="/create/">Picture</a>
-		
-		<a class="btn" href="/create_url/">External Website</a>
-		
-		<a class="btn" href="/create_text/">Basic Text</a>
-	</center>
-	
-	<br>
-</article>
+    <article style="text-align:left; width:570px; padding:15px;" class="small">
+        <h1>What Kind of Post Would You Like To Publish?</h1>
+        <center>
+            <a class="btn" href="/create/">Picture</a>
+
+            <a class="btn" href="/create_url/">External Website</a>
+
+            <a class="btn" href="/create_text/">Basic Text</a>
+        </center>
+
+        <br>
+    </article>
 
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-		
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 {% endblock %}
 		

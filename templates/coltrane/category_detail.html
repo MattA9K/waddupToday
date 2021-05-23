@@ -4,90 +4,101 @@
 
 {% block nav %}
 
-	<nav> 
-			<a class="nav" href="/weblog/"><span style="display:inline-block" class="ui-icon ui-icon-home"></span>Home</a> 
-			<a class="active" href="/categories/"><span style="display:inline-block" class="ui-icon ui-icon-contact"></span>Categories</a>
-			<a class="nav" href="/tags/"># Discover</a> 
-			<a class="nava" href="/profile_list/">@ Connect</a> 
-			
-			{% if username %}
-  			<a class="nav" href="/create_pick/"><span style="display:inline-block" class="ui-icon ui-icon-document"></span>Compose Post</a>
-			<a class="nav" id="login" href="/user/{{ uid }}"><span style="display:inline-block" class="ui-icon ui-icon-person"></span>{{ username }} </a>
-			<a class="nav" href="/profile/"><span style="display:inline-block" class="ui-icon ui-icon-gear"></span>Manage Account </a>
-			<a class="nav" href="/logout/"><span style="display:inline-block" class="ui-icon ui-icon-locked"></span>Sign Out </a>
-			
-			{% else %}
-			<a class="nav" id="login" href="/login/"><span style="display:inline-block" class="ui-icon ui-icon-key"></span>Sign In </a>
-			<a class="nav" href="/register/"><span style="display:inline-block" class="ui-icon ui-icon-person"></span>Sign Up </a>
-			<a class="nav" href="/forgot/"><span style="display:inline-block" class="ui-icon ui-icon-help"></span>Forgot Password </a>
-			{% endif %}			
-	</nav>
-	
+    <nav>
+        <a class="nav" href="/weblog/"><span style="display:inline-block" class="ui-icon ui-icon-home"></span>Home</a>
+        <a class="active" href="/categories/"><span style="display:inline-block" class="ui-icon ui-icon-contact"></span>Categories</a>
+        <a class="nav" href="/tags/"># Discover</a>
+        <a class="nava" href="/profile_list/">@ Connect</a>
+
+        {% if username %}
+            <a class="nav" href="/create_pick/"><span style="display:inline-block"
+                                                      class="ui-icon ui-icon-document"></span>Compose Post</a>
+            <a class="nav" id="login" href="/user/{{ uid }}"><span style="display:inline-block"
+                                                                   class="ui-icon ui-icon-person"></span>{{ username }}
+            </a>
+            <a class="nav" href="/profile/"><span style="display:inline-block" class="ui-icon ui-icon-gear"></span>Manage
+                Account </a>
+            <a class="nav" href="/logout/"><span style="display:inline-block" class="ui-icon ui-icon-locked"></span>Sign
+                Out </a>
+
+        {% else %}
+            <a class="nav" id="login" href="/login/"><span style="display:inline-block"
+                                                           class="ui-icon ui-icon-key"></span>Sign In </a>
+            <a class="nav" href="/register/"><span style="display:inline-block" class="ui-icon ui-icon-person"></span>Sign
+                Up </a>
+            <a class="nav" href="/forgot/"><span style="display:inline-block" class="ui-icon ui-icon-help"></span>Forgot
+                Password </a>
+        {% endif %}
+    </nav>
+
 {% endblock %}
 
 
-		
-{% block content %}	
-				
-				<h1>{{ cat }}</h1>
-					
-	<article class="small" style="width:10%; display:inline-block; position: absolute; left:10%; top:29.5%">
-		<h2 style="color:white; text-align:left; padding-left:13px;">Sort by:</h2>
-				<br>
-					<a class="btn" href="/categories/views/{{ cat }}">Most Viewed</a>
-				<br>
-					<a class="btn" href="/categories/likes/{{ cat }}">Most Liked</a>
-				<br>
-					<a class="btn" href="/categories/{{ cat }}">Most Recent</a>
-				<br>
-					<a class="btn" href="/categories/comments/{{ cat }}">Most Discussed</a>
-	</article>
-				
-				
-				
-	<div style="width:80%; float:right;">			
-	<h1>{{ category }}</h1>
-		<div id="navigation">
-		{% for object_list in object_list %}
-	<div onclick="window.open('/weblog/{{ object_list.id }}/')" class="outer">
-				{% if object_list.thumbnail %}
-		<section  class="inner" style="background-image:url('/static/uploaded_files/{{object_list.thumbnail}}');">
-				{% endif %}				
-		</section>
-			
-		<div class="inner2">
-		<h4 >{{ object_list.title }}</h4>
-		<p id="demo"></p>
-		
-			<p class="entry">
-				{% if "youtube.com" in object_list.body %}
-	<div style="z-index:100; padding-left:5px; margin-top:80px;">
-					<script>
-					var youtube = "{{ object_list.body }}"
-					var processed = youtube.substring(32);
-					document.write('<iframe width="275" height="180" src="//www.youtube.com/embed/'+processed+'" frameborder="0" allowfullscreen></iframe>');
-					</script>
-	</div> 
-	
-    			{% elif "vimeo.com" in object_list.body %}
-<iframe src="//player.vimeo.com/video/{{ object_list.body|cut:'http://vimeo.com/' }}" width="275" height="180" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-				{% else %}
-				  {{ object_list.body|truncatewords_html:"70"|safe }}
-				{% endif %}
-	
-			</p>
 
-				<p class="post_data1">
-				<a href="/weblog/{{ object_list.id }}" class="btna">Rate</a>
-				</p>
-				<p class="post_data2">{{object_list.rating_current}}</p>	
-				<p class="post_data3">Comments: {{ object_list.num_comments }}</p>
-				<p class="post_data4">Views: {{ object_list.num_views }}</p>		
-				
-		</div>
-   	</div>
-	
-		{% endfor %}
-	</div>
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	{% endblock %}
+{% block content %}
+
+    <h1>{{ cat }}</h1>
+
+    <article class="small" style="width:10%; display:inline-block; position: absolute; left:10%; top:29.5%">
+        <h2 style="color:white; text-align:left; padding-left:13px;">Sort by:</h2>
+        <br>
+        <a class="btn" href="/categories/views/{{ cat }}">Most Viewed</a>
+        <br>
+        <a class="btn" href="/categories/likes/{{ cat }}">Most Liked</a>
+        <br>
+        <a class="btn" href="/categories/{{ cat }}">Most Recent</a>
+        <br>
+        <a class="btn" href="/categories/comments/{{ cat }}">Most Discussed</a>
+    </article>
+
+
+
+    <div style="width:80%; float:right;">
+        <h1>{{ category }}</h1>
+        <div id="navigation">
+            {% for object_list in object_list %}
+                <div onclick="window.open('/weblog/{{ object_list.id }}/')" class="outer">
+                    {% if object_list.thumbnail %}
+                        <section class="inner"
+                                 style="background-image:url('/static/uploaded_files/{{ object_list.thumbnail }}');">
+                    {% endif %}
+                    </section>
+
+                    <div class="inner2">
+                        <h4>{{ object_list.title }}</h4>
+                        <p id="demo"></p>
+
+                        <p class="entry">
+                            {% if "youtube.com" in object_list.body %}
+                                <div style="z-index:100; padding-left:5px; margin-top:80px;">
+                                    <script>
+                                        var youtube = "{{ object_list.body }}"
+                                        var processed = youtube.substring(32);
+                                        document.write('<iframe width="275" height="180" src="//www.youtube.com/embed/' + processed + '" frameborder="0" allowfullscreen></iframe>');
+                                    </script>
+                                </div>
+
+                            {% elif "vimeo.com" in object_list.body %}
+                                <iframe src="//player.vimeo.com/video/{{ object_list.body|cut:'http://vimeo.com/' }}"
+                                        width="275" height="180" frameborder="0" webkitallowfullscreen
+                                        mozallowfullscreen allowfullscreen></iframe>
+                            {% else %}
+                                {{ object_list.body|truncatewords_html:"70"|safe }}
+                            {% endif %}
+
+                        </p>
+
+                        <p class="post_data1">
+                            <a href="/weblog/{{ object_list.id }}" class="btna">Rate</a>
+                        </p>
+                        <p class="post_data2">{{ object_list.rating_current }}</p>
+                        <p class="post_data3">Comments: {{ object_list.num_comments }}</p>
+                        <p class="post_data4">Views: {{ object_list.num_views }}</p>
+
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock %}
