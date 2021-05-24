@@ -25,3 +25,5 @@ def search(request):
 			'results': rs }
 	return render_to_response('search.html',
 								ojs)
+
+

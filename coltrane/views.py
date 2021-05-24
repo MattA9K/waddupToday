@@ -12,7 +12,6 @@ from django.core.context_processors import csrf
 
 # user login csrf token
 from django.template import RequestContext
-
 from tagging.models import Tag, TaggedItem
 
 
@@ -82,11 +81,12 @@ def search_titles(request):
 
 # ajax search function for HASHTAGS
 def search_hashes(request):
+    search_text_hash: str
     if request.method == "GET":
         search_text_hash = request.GET['search_text_hash']
     else:
         search_text_hash = ''
-
+    # - - - -  -- - - - ✅   ✅   ✅    ✅
     args = {}
     args['hashtags'] = Hashtag.objects.filter(title__contains=search_text_hash)[:35]
 
@@ -99,11 +99,17 @@ def user_index(request, user_id):
     args['uid'] = request.user.id
     args['this_user'] = User.objects.get(id=user_id)
     args['entry_list'] = Entry.objects.all().filter(author_id=user_id)[:35]
-
+    # - - - -  -- - - - ✅   ✅   ✅    ✅
     e_comments = Entry.objects.all()
     args['count_comments'] = Comments.objects.all().filter(parent_entry_id=e_comments).count()
 
     return render_to_response('coltrane/user_index.html', args)
+
+
+
+
+
+
 
 
 def entries_index(request):
@@ -115,8 +121,23 @@ def entries_index(request):
 
     e_comments = Entry.objects.all()
     args['count_comments'] = Comments.objects.all().filter(parent_entry_id=e_comments).count()
-
+    # - - - -  -- - - - ✅   ✅   ✅    ✅
     return render_to_response('coltrane/entry_index.html', args)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def entry_detail(request, entry_id):
@@ -135,7 +156,7 @@ def entry_detail(request, entry_id):
             c.save()
 
             return HttpResponseRedirect('/weblog/%s' % entry_id)
-
+    # - - - -  -- - - - ✅   ✅   ✅    ✅
     # else the entry detail page is loaded
     else:
         args = {}
@@ -183,7 +204,25 @@ def entry_detail(request, entry_id):
 # return render_to_response('coltrane/newcomment.html', args)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def category_list(request):
+    # - - - -  -- - - - ✅   ✅   ✅    ✅
     args = {}
     args['entry1'] = Entry.objects.all()
     args['category_list'] = Category.objects.all()
@@ -193,18 +232,24 @@ def category_list(request):
     return render_to_response('coltrane/category_list.html', args)
 
 
+
+
+
+
+
+
 def category_detail(request, slug):
     category = get_object_or_404(Category, slug=slug)
-
+    # - - - -  -- - - - ✅   ✅   ✅    ✅
     args = {}
     args['category_list'] = Category.objects.all()
     args['username'] = request.user.username
     args['uid'] = request.user.id
     args['cat'] = category
 
-    category = get_object_or_404(Category, slug=slug)
+    # category = get_object_or_404(Category, slug=slug)
 
-    args['object_list'] = category.entry_set.all().order_by('-num_views')
+    args['object_list'] = category.entry_set.all().order_by('-num_views', '-pub_date')
     return render_to_response('coltrane/category_detail.html', args)
 
 
@@ -225,17 +270,24 @@ def category_views(request, slug):
 
 def category_likes(request, slug):
     category = get_object_or_404(Category, slug=slug)
-
+    # - - - -  -- - - - ✅   ✅   ✅    ✅
     args = {}
     args['category_list'] = Category.objects.all()
     args['username'] = request.user.username
     args['uid'] = request.user.id
     args['cat'] = category
 
-    category = get_object_or_404(Category, slug=slug)
+    # category = get_object_or_404(Category, slug=slug)
 
     args['object_list'] = category.entry_set.all().order_by('-likes', '-pub_date')
     return render_to_response('coltrane/category_detail.html', args)
+
+
+
+
+
+
+
 
 
 def category_comments(request, slug):
@@ -247,14 +299,25 @@ def category_comments(request, slug):
     args['uid'] = request.user.id
     args['cat'] = category
 
-    category = get_object_or_404(Category, slug=slug)
+    # category = get_object_or_404(Category, slug=slug)
 
     args['object_list'] = category.entry_set.all().order_by('-num_comments', '-pub_date')
     return render_to_response('coltrane/category_detail.html', args)
 
 
+
+
+
+
+
 def user_register(request):
     return render_to_response('coltrane/registration_page.html')
+
+
+
+
+
+
 
 
 def register(request):
