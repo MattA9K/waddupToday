@@ -19,7 +19,7 @@ from tagging.models import Tag, TaggedItem
 
 
 def home_page(request):
-    return HttpResponseRedirect('/weblog/')
+    return HttpResponseRedirect('/weblog/index/')
 
 
 def password_reset(request):
