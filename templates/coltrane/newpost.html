@@ -3,10 +3,20 @@
 {% block nav %}
 
     <nav>
-        <a class="nav" href="/weblog/"><span style="display:inline-block" class="ui-icon ui-icon-home"></span>Home</a>
-        <a class="nav" href="/categories/"><span style="display:inline-block" class="ui-icon ui-icon-contact"></span>Categories</a>
-        <a class="nav" href="/tags/"># Discover</a>
-        <a class="nava" href="/profile_list/">@ Connect</a>
+        <a class="nav" href="/weblog/">
+            <span style="display:inline-block" class="ui-icon ui-icon-home"></span>
+            Home
+        </a>
+        <a class="nav" href="/categories/">
+            <span style="display:inline-block" class="ui-icon ui-icon-contact"></span>
+            Categories
+        </a>
+        <a class="nav" href="/tags/">
+            # Discover
+        </a>
+        <a class="nava" href="/profile_list/">
+            @ Connect
+        </a>
 
         {% if username %}
             <a class="active" href="/create_pick/"><span style="display:inline-block"
